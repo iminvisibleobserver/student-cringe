@@ -1,0 +1,93 @@
+class Converter
+{
+
+	
+private:
+	double eur_to_uah;
+	double uah_to_eur;
+	double usd_to_uah;
+	double uah_to_usd;
+	double usd_to_eur;
+	double eur_to_usd;
+public:
+	Converter(double eur_to_uah, double uah_to_eur, double usd_to_uah, double uah_to_usd, double usd_to_eur, double eur_to_usd) :eur_to_uah(eur_to_uah), uah_to_eur(uah_to_eur), usd_to_uah(usd_to_uah), uah_to_usd(uah_to_usd), usd_to_eur(usd_to_eur), eur_to_usd(eur_to_usd)
+	{
+		cout.precision(4);
+	}
+	void veur_to_uah() {   //eur in uah
+		double uah = 0;
+		double eur = 0;
+		cout << "\n Vvedit kilkist evro: \n\n";
+		cin >> eur;
+		uah = eur * eur_to_uah;
+		cout << "\n" << eur << " evro tse " << uah << " griven\n\n";
+		system("pause");
+	}
+	void vuah_to_eur() {   //uah in eur
+		double uah = 0;
+		double eur = 0;
+		cout << "\n Vvedit kilkist griven: \n\n";
+		cin >> uah;
+		eur = uah * uah_to_eur;
+		cout << "\n" << uah << " grivna tce " << eur << " evro\n\n";
+		system("pause");
+	}
+	void vusd_to_uah() {  // usd in uah
+		double usd = 0;
+		double uah = 0;
+		cout << "\n Vvedit kilkis dollariv: \n\n";
+		cin >> usd;
+		uah = usd * usd_to_uah;
+		cout << "\n" << usd << " dollar tce " << uah << " griven\n\n";
+		system("pause");
+	}
+	void vuah_to_usd() {    //uah in usd
+		double usd = 0;
+		double uah = 0;
+		cout << "\n Vvedit kilkist griven: \n\n";
+		cin >> uah;
+		usd = uah * uah_to_usd;
+		cout << "\n" << uah << " grivna tce " << usd << " dollariv\n\n";
+		system("pause");
+	}
+	void vusd_to_eur() {    //usd in eud
+		double eur = 0;
+		double usd = 0;
+		cout << "\n Vvedit kilkist dollariv: \n\n";
+		cin >> usd;
+		eur = usd * usd_to_eur;
+		cout << "\n" << usd << " dollar tce " << eur << " evro\n\n";
+		system("pause");
+	}
+	void veur_to_usd() {   //eur in usd
+		double eur = 0; 
+		double usd = 0;
+		cout << "\n\n Vvedit kilkist evro: \n\n";
+		cin >> eur;
+		usd = eur * eur_to_usd;
+		cout << "\n" << eur << " evro tce " << usd << " dollariv\n\n";
+		system("pause");
+	}
+};
+
+int main()
+{
+	Converter converter(36.18, 0.028, 36.76, 0.027, 1.02, 0.98);
+	int metod;
+	
+	while (true)
+	{
+		cout << "Oberit odun z variantiv nuzhche:" << "\n\n<<1:: Evro v Grivnu" << "\n\n<<2:: Grivnu v Evro" << "\n\n<<3:: Dollaru v Grivnu" << "\n\n<<4::Grivnu v Dollar" << "\n\n<<5:: Dollar v Evro" << "\n\n<<6 Evro v Dollaru" << "\n\n<<0:: EXIT" << "\n\n>> "; cin >> metod;
+		if (metod == 0 || metod >= 7) break;
+		switch (metod)
+		{
+		case 1: converter.veur_to_uah(); break;
+		case 2: converter.vuah_to_eur(); break;
+		case 3: converter.vusd_to_uah(); break;
+		case 4: converter.vuah_to_usd(); break;
+		case 5: converter.vusd_to_eur(); break;
+		case 6: converter.veur_to_usd(); break;
+		}
+	}
+	return 0;
+}
